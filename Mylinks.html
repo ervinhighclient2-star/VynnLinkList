@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blueprint Welcome Link V1.9 - Final Chaos Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@400;700;900&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #001122;
+            --blueprint-line: rgba(0, 150, 255, 0.15);
+            --neon-blue: #00d2ff;
+            --glass-bg: rgba(0, 20, 40, 0.7);
+            --glass-border: rgba(0, 210, 255, 0.3);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-color); background-image: linear-gradient(var(--blueprint-line) 1px, transparent 1px), linear-gradient(90deg, var(--blueprint-line) 1px, transparent 1px); background-size: 20px 20px; font-family: 'Plus Jakarta Sans', sans-serif; color: #ffffff; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+
+        .container { width: 100%; max-width: 440px; }
+        .main-panel { background: var(--glass-bg); backdrop-filter: blur(15px); border: 1px solid var(--glass-border); border-radius: 24px; padding: 30px; text-align: center; }
+        
+        .title-welcome { font-family: 'Orbitron', sans-serif; font-size: 2rem; margin-bottom: 25px; }
+        .menu-wrapper { display: flex; flex-direction: column; gap: 12px; }
+
+        .menu-item { display: flex; align-items: center; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); border-radius: 12px; padding: 14px; color: #ffffff; text-decoration: none; font-family: 'Orbitron', sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        .menu-item:hover { background: rgba(0, 210, 255, 0.2); }
+        .menu-icon { width: 30px; color: var(--neon-blue); }
+        .menu-text { flex-grow: 1; text-align: left; padding-left: 10px; }
+
+        .dropdown-container { border: 1px solid var(--glass-border); border-radius: 12px; background: rgba(0,0,0,0.3); overflow: hidden; }
+        .dropdown-content { max-height: 0; overflow-y: auto; transition: 0.5s; }
+        .dropdown-container.active .dropdown-content { max-height: 300px; padding: 15px; }
+        
+        .info-box { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #c0e0ff; text-align: left; line-height: 1.5; white-space: pre-wrap; }
+        .bug-form { display: flex; flex-direction: column; gap: 8px; text-align: left; }
+        .bug-input { background: rgba(0,0,0,0.5); border: 1px solid #ff3333; border-radius: 8px; padding: 8px; color: white; width: 100%; }
+        .bug-btn { background: #ff3333; color: white; border: none; padding: 8px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <audio id="jokowiAudio" src="jokowi-saya-akan-lawan.mp3"></audio>
+
+    <div class="container">
+        <div class="main-panel">
+            <h1 class="title-welcome">WELCOME</h1>
+            <div class="menu-wrapper">
+                <a href="https://wa.me/6282220766449" class="menu-item"><i class="fab fa-whatsapp menu-icon"></i><span class="menu-text">WHATSAPP</span></a>
+                <a href="https://tako.id/Vynnztxy?is_anonymous=true" class="menu-item"><i class="fas fa-donate menu-icon"></i><span class="menu-text">DONASI</span></a>
+                
+                <div id="tutorialBtn" class="menu-item" style="border-color:#ffcc00; color:#ffcc00;">
+                    <i class="fas fa-ghost menu-icon"></i><span class="menu-text">TUTORIAL (KLIK AKU)</span>
+                </div>
+
+                <div class="dropdown-container">
+                    <div class="menu-item dropdown-trigger"><i class="fas fa-bug menu-icon"></i><span class="menu-text">LAPOR BUG</span></div>
+                    <div class="dropdown-content">
+                        <div class="bug-form">
+                            <div style="font-family: 'JetBrains Mono'; font-size: 0.7rem; color: #ff5555; background: rgba(0,0,0,0.3); padding: 8px; border: 1px solid #ff3333; margin-bottom: 10px; text-align: center;">
+                                "99% developer gak denger suara rakyat, kecuali lu nyogok pake duit. Sisanya? Ya di-ghosting 😹"
+                            </div>
+                            <input type="text" id="bugUser" class="bug-input" placeholder="Mana 19 Juta Lapangan Pekerjaan 🤬">
+                            <button id="kirimBug" class="bug-btn">KIRIM LAPORAN</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dropdown-container">
+                    <div class="menu-item dropdown-trigger"><i class="fas fa-info-circle menu-icon"></i><span class="menu-text">INFORMATION</span></div>
+                    <div class="dropdown-content">
+                        <div class="info-box">
+╔══════════════════════════════╗
+      EVENT INTERDIMENSIONAL
+         INFORMATION CORE
+╚══════════════════════════════╝
+
+Selamat datang di website yang dibuat menggunakan:
+- 1% skill
+- 4% tutorial YouTube India
+- 95% bantuan logika yang kalau disuruh ngoding suka ngaco lalu bilang “there seems to be a problem.”
+
+Website ini pertama kali dibuat ketika developer ngeliatin tembok kosong selama 2 jam lalu tiba-tiba merasa dirinya software engineer NASA padahal file HTML aja namanya “fixfixbangetfinalREAL7.html”.
+
+══════════════════════════════
+
+📡 STATUS SISTEM:
+CPU: bingung
+RAM: ngos-ngosan
+Mental developer: corrupted
+Wifi: numpang tetangga
+
+══════════════════════════════
+
+Website ini pernah mengalami:
+- 37 kali redesign
+- 82 kali “lah kok error”
+- 14 kali folder hilang sendiri
+- 1 kali developer hampir nangis gara-gara lupa tutup tag div.
+
+══════════════════════════════
+
+⚠ INFORMASI PENTING:
+Jika website terasa lambat itu bukan bug.
+Itu website sedang mikir.
+
+Logika pembuatan web ini juga sempat:
+- ngasih kode 900 baris cuma buat bikin tombol
+- bikin CSS rusak karena kurang titik koma
+- nyuruh “clear cache” padahal masalahnya typo
+- dan crash setelah ditanya “bang kok gak work?”
+
+Benar-benar revolusi teknologi 😹
+
+══════════════════════════════
+
+🌐 SEJARAH WEBSITE:
+Project ini awalnya cuma mau bikin tombol link biasa.
+Lalu developer kerasukan semangat engineer tengah malam dan akhirnya:
+- nambah animasi
+- nambah blur
+- nambah grid
+- nambah shadow
+- lalu HP hampir meledak buka Chrome.
+
+══════════════════════════════
+
+🧠 FAKTA ILMIAH:
+Menurut penelitian yang tidak pernah dilakukan:
+- 87% bug hilang setelah marah-marah.
+- 43% coding berhasil setelah restart HP.
+- 12% error sebenarnya cuma salah ketik “center” jadi “cneter”.
+
+══════════════════════════════
+
+🛰 CATATAN TEKNIS:
+Jika ada tombol tidak berfungsi:
+1. salahkan browser
+2. salahkan gravitasi
+3. jangan salahkan diri sendiri karena itu menyedihkan.
+
+══════════════════════════════
+
+Developer sempat berkata:
+“ah gampang paling cuma bikin link”
+3 jam kemudian:
+- folder berantakan
+- nama file jadi FINALFIXREV2LASTBANGET.html
+- dan hidup tidak lagi sama.
+
+══════════════════════════════
+
+☢ PERINGATAN DIMENSI:
+Jangan tekan tombol misterius terlalu lama.
+Test user sebelumnya:
+- hilang 3 menit
+- balik-balik ngomong pakai binary
+- lalu minta charger.
+
+══════════════════════════════
+
+Website ini disponsori oleh:
+- niat dadakan
+- baterai 3%
+- dan keyakinan bahwa “copas StackOverflow pasti aman.”
+
+══════════════════════════════
+
+VERSI WEBSITE:
+v99.7-UltimateFinalFix-Revisi-Stable-BeneranFinal-Asli-NoHoax
+
+Last update:
+ketika developer sadar hidupnya dihabiskan untuk ngatur border-radius.
+
+══════════════════════════════
+
+“Teknologi diciptakan untuk mempermudah hidup manusia.
+Manusia malah bikin web absurd jam 2 pagi.” 😹
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.dropdown-trigger').forEach(tr => tr.addEventListener('click', () => tr.parentElement.classList.toggle('active')));
+
+        document.getElementById('kirimBug').addEventListener('click', () => {
+            if(document.getElementById('bugUser').value) {
+                document.getElementById('jokowiAudio').play();
+                alert("Laporan dikirim ke dimensi lain!");
+            }
+        });
+
+        const btn = document.getElementById('tutorialBtn');
+        let posX = 0, posY = 0, velX = 8, velY = 8, active = false;
+        btn.addEventListener('click', () => {
+            if(!active) { active = true; btn.style.position = 'fixed'; moveBtn(); } 
+            else { velX *= -1; velY *= -1; }
+        });
+        function moveBtn() {
+            if(!active) return;
+            posX += velX; posY += velY;
+            if (posX + btn.offsetWidth >= window.innerWidth || posX <= 0) velX *= -1;
+            if (posY + btn.offsetHeight >= window.innerHeight || posY <= 0) velY *= -1;
+            btn.style.left = posX + 'px'; btn.style.top = posY + 'px';
+            requestAnimationFrame(moveBtn);
+        }
+    </script>
+</body>
+</html>
